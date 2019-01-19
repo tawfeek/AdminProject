@@ -7,7 +7,7 @@ import { UserstableComponent } from '../app/AdminUsersProject/Components/usersta
 import { Component } from '@angular/core';
 import {  HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatTableModule, MatSortModule} from '@angular/material';
+import { MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/material';
 import {UserService} from '../app/AdminUsersProject/Services/user.service';
 
 @NgModule({
@@ -21,8 +21,8 @@ import {UserService} from '../app/AdminUsersProject/Services/user.service';
     HttpClientModule,
     BrowserAnimationsModule,
     MatTableModule,
-    MatSortModule
-
+    MatSortModule,
+    MatPaginatorModule
 
   ],
   providers: [UserService],
