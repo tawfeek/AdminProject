@@ -17,9 +17,10 @@ export class UserstableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns = ['seqID', 'userName', 'phone', 'role', 'loggedin'];
+  displayedColumns = ['counter', 'userName', 'phone', 'role', 'loggedin'];
   dataSource;
   chart = [];
+  dataLength = 0;
   constructor(private userService: UserService) { }
 
 
@@ -28,12 +29,19 @@ export class UserstableComponent implements OnInit {
       if (!results) {
         return;
       }
+      let counter = 1;
+      results.map(result => {
+        result.counter = counter;
+        counter++;
+      });
       this.dataSource = new MatTableDataSource(results);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
 
-      console.log('DataSource: ' + this.dataSource);
+      // to initiate the first column in table
+      this.dataLength = results.length;
 
+      console.log('length of Data: ' + results.length);
       console.log('results[0]: ' + results[0].userName);
 
     });

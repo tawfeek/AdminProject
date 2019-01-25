@@ -9,7 +9,8 @@ import {Observable} from 'rxjs';
   providedIn: 'root'
 })
 export class UserService {
-private serviceUrl = './assets/users.json';
+ private serviceUrl = 'http://localhost:8085/usersonhp';
+// private serviceUrl = 'https://adminfinal1.herokuapp.com/usersonhp';
   constructor(private http: HttpClient) { }
 
     getUser(): Observable< User[]> {
