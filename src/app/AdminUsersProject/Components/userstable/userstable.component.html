@@ -1,61 +1,74 @@
+<div class="search-div">
 
-  <div class="tableDiv">
-    <mat-table [dataSource]="dataSource" matSort>
+  <button mat-raised-button (click)="onClick()">
+    <mat-icon>add</mat-icon>New
+  </button>
 
-      <ng-container matColumnDef="seqID">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>seqID</mat-header-cell>
-        <mat-cell *matCellDef="let user" class="seqid">{{user.seqID}}</mat-cell>
-      </ng-container>
+</div>
 
-      <ng-container matColumnDef="userName">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>userName</mat-header-cell>
-        <mat-cell *matCellDef="let user" class="username">{{user.userName}}</mat-cell>
-      </ng-container>
+<div class="tableDiv">
 
-      <ng-container matColumnDef="phone">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>phone</mat-header-cell>
-        <mat-cell *matCellDef="let user">{{user.phone}}</mat-cell>
-      </ng-container>
+  <mat-table [dataSource]="dataSource" matSort>
 
-      <ng-container matColumnDef="role">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>role</mat-header-cell>
-        <mat-cell *matCellDef="let user">{{user.role}}</mat-cell>
-      </ng-container>
+    <ng-container matColumnDef="seqID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>seqID</mat-header-cell>
+      <mat-cell *matCellDef="let user" class="seqid">{{user.seqID}}</mat-cell>
+    </ng-container>
 
-      <ng-container matColumnDef="loggedin">
-        <mat-header-cell *matHeaderCellDef mat-sort-header>loggedin</mat-header-cell>
-        <mat-cell *matCellDef="let user">{{user.loggedin}}</mat-cell>
-      </ng-container>
+    <ng-container matColumnDef="userName">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>userName</mat-header-cell>
+      <mat-cell *matCellDef="let user" class="username">{{user.userName}}</mat-cell>
+    </ng-container>
 
-      <mat-header-row *matHeaderRowDef="displayedColumns" color="primary" ></mat-header-row>
-      <mat-row *matRowDef="let row; columns:displayedColumns"  ></mat-row>
+    <ng-container matColumnDef="phone">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>phone</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{user.phone}}</mat-cell>
+    </ng-container>
 
+    <ng-container matColumnDef="role">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>role</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{user.role}}</mat-cell>
+    </ng-container>
 
-      
-    </mat-table>
-    <mat-paginator
+    <ng-container matColumnDef="loggedin">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>loggedin</mat-header-cell>
+      <mat-cell *matCellDef="let user">{{user.loggedin}}</mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" color="primary" ></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
+
+  </mat-table>
+
+  <mat-paginator
     [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
-</mat-paginator>
-    
+  </mat-paginator>
 
-    
-  </div>
+</div>
 
-  <div *ngIf>
- <canvas id="canvas">{{ chart }}</canvas>
-  </div>
+<div *ngIf>
+  <canvas id="canvas">{{ chart }}</canvas>
+</div>
 
-  
-  
-  
-  
+
+
+
+
   <!--
   <h1>
    test
   </h1>
 
   <table *ngIf="arrUsers">
-  
+
     <tr>
       <th sortable-column="seqID">seqID</th>
       <th sortable-column="userName">userName</th>

@@ -4,10 +4,11 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { UserstableComponent } from '../app/AdminUsersProject/Components/userstable/userstable.component';
-import { Component } from '@angular/core';
+
 import {  HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatTableModule, MatSortModule, MatPaginatorModule} from '@angular/material';
+import { MatTableModule, MatSortModule, MatPaginatorModule, MatButtonModule, MatIconModule, MatCheckboxModule } from '@angular/material';
+import {MatToolbarModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatDialogModule} from '@angular/material';
 import {UserService} from '../app/AdminUsersProject/Services/user.service';
 import { NewuserComponent } from './AdminUsersProject/Components/newuser/newuser.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
@@ -27,12 +28,21 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     MatTableModule,
     MatSortModule,
     MatPaginatorModule,
+    MatDialogModule,
+    MatButtonModule,
+    MatIconModule,
+    MatToolbarModule,
+    MatGridListModule,
+    MatInputModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
     FormsModule,
     ReactiveFormsModule
 
   ],
-  providers: [UserService],
-  bootstrap: [AppComponent]
+  providers: [UserService, NewuserComponent],
+  bootstrap: [AppComponent],
+  entryComponents: [NewuserComponent]
 })
 export class AppModule { }
 

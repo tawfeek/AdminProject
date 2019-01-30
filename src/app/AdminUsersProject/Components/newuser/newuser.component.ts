@@ -1,8 +1,8 @@
+import { User } from './../../model/user.model';
 import { Component, OnInit } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-import { UserService} from '../../../AdminUsersProject/Services/user.service';
-// import { AlertService } from './../../Services/alert.service';
-
+import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material';
+import * as _ from 'lodash';
 @Component({
   selector: 'app-newuser',
   templateUrl: './newuser.component.html',
@@ -12,24 +12,49 @@ export class NewuserComponent implements OnInit {
 
   mydate = Date.now();
 
-  registerForm: FormGroup;
-  loading = false;
-  submitted = false;
+  constructor() { }
 
+  form: FormGroup = new FormGroup({
+    $key: new FormControl(null),
+    fullName: new FormControl('', Validators.required),
+    email: new FormControl('', Validators.email),
+    phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    password: new FormControl('', [Validators.required, Validators.minLength(6)])
+  });
 
-  constructor(
-    private formBuilder: FormBuilder) { }
-
-  ngOnInit() {
-    this.registerForm = this.formBuilder.group({
-      Name: ['', Validators.required],
-      Email: ['', Validators.required],
-      Phone: ['', Validators.required],
-      password: ['', [Validators.required, Validators.minLength(6)]]
+  initializeFormGroup() {
+    this.form.setValue({
+      $key: null,
+      fullName: '',
+      email: '',
+      phone: '',
+      password: ''
     });
   }
+  ngOnInit() {}
 
-  // convenience getter for easy access to form fields
-  get f() { return this.registerForm.controls; }
+  onClear() {
+    this.form.reset();
+    this.initializeFormGroup();
+  }
+
+  populateForm(user) {
+    /*this.form.setValue({
+      $key: null,
+      fullName: 'walid hanosh',
+      email: user.userName,
+      phone: user.phone,
+      password: '123456'
+    });*/
+    this.form.setValue(user);
+  }
+
+
+
+  /*onClose() {
+    this.form.reset();
+    this.initializeFormGroup();
+    this.dialogRef.close();
+  }*/
 
 }
