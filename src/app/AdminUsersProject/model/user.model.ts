@@ -4,4 +4,5 @@ export interface User {
     phone: string ;
     role: string ;
     loggedin: string ;
+    counter?: number;
 }

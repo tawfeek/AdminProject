@@ -33,13 +33,19 @@ export class UserstableComponent implements OnInit {
       if (!results) {
         return;
       }
+      let counter = 1;
+      results.map(result => {
+        result.counter = counter;
+        counter++;
+      });
       this.dataSource = new MatTableDataSource(results);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
 
-      // console.log('DataSource: ' + this.dataSource);
+      // to initiate the first column in table
 
-      // console.log('results[0]: ' + results[0].userName);
+      console.log('length of Data: ' + results.length);
+      console.log('results[0]: ' + results[0].userName);
 
     });
   }
