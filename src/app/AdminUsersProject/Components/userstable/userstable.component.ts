@@ -56,6 +56,7 @@ export class UserstableComponent implements OnInit {
   }
 
   onEdit(row) {
+   // console.log('__dirname:'  + __dirname);
 /*
     console.log('results[0]: ' + row.userName_gmail);
     console.log('name ' + row.name);
