@@ -12,8 +12,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
   providedIn: 'root'
 })
 export class UserService {
-  // private serviceUrl = './assets/users.json';
-  private serviceUrl = 'http://localhost:8080/users';
+  private serviceUrl = './assets/us.json';
+  // private serviceUrl = 'http://localhost:8080/users';
 
   httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
