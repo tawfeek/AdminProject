@@ -55,9 +55,11 @@ export class UserstableComponent implements OnInit {
   }
 
   onEdit(row) {
-    /*console.log('results[0]: ' + row.userId);
+/*
     console.log('results[0]: ' + row.userName_gmail);
-    console.log('results[0]: ' + row.phone);*/
+    console.log('name ' + row.name);
+    console.log('userId ' + row.userId);
+ */
     this.userService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;

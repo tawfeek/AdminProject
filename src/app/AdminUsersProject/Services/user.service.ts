@@ -38,14 +38,12 @@ export class UserService {
   }
 
   populateForm(user) {
-    // this.form.setValue(user);
-    // this.form.setValue(_.omit(user, 'login', 'password'));
-    // this.form.patchValue(user);
+    console.log('in service: ' + user.userName_gmail);
     this.form.setValue({
-      $key: null,
-      fullName: 'malik abed',
-      email: 'malik@gmail.com',
-      phone: '0528432254',
+      $key: user.userId,
+      fullName: user.name,
+      email: user.userName_gmail,
+      phone: user.phone,
       password: '123456'
     });
   }
