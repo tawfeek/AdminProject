@@ -6,7 +6,7 @@
     </mat-toolbar>
 </div>
 
-<form [formGroup]= "form" class="normal-form">
+<form [formGroup]= "userService.form" class="normal-form">
 
   <mat-grid-list cols="2" rowHeight="2:1">
 
@@ -23,8 +23,8 @@
         </mat-form-field>
         <mat-form-field>
           <input formControlName="phone" matInput placeholder="Phone*">
-          <mat-error *ngIf="form.controls['phone'].errors?.required">Phone number is required.</mat-error>
-          <mat-error *ngIf="form.controls['phone'].errors?.minlength">Minimum 10 charactors needed.</mat-error>
+          <mat-error *ngIf="userService.form.controls['phone'].errors?.required">Phone number is required.</mat-error>
+          <mat-error *ngIf="userService.form.controls['phone'].errors?.minlength">Minimum 10 charactors needed.</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input formControlName="password" matInput placeholder="Password*" type=password>
@@ -43,7 +43,7 @@
 
     <mat-grid-tile>
       <div class="button-row">
-        <button mat-raised-button color="primary" type="submit" [disabled]="form.invalid">Save</button>
+        <button mat-raised-button color="primary" type="submit" [disabled]="userService.form.invalid">Save</button>
         <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
       </div>
     </mat-grid-tile>

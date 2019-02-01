@@ -18,7 +18,7 @@ export class UserstableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns = ['seqID', 'userName', 'phone', 'role', 'loggedin', 'actions'];
+  displayedColumns = ['seqID', 'userName', 'phone', 'loggedin', 'actions'];
   // displayedColumns = ['seqID', 'email', 'phone', 'role', 'loggedin', 'actions'];
   dataSource;
   chart = [];
@@ -33,25 +33,20 @@ export class UserstableComponent implements OnInit {
       if (!results) {
         return;
       }
-      let counter = 1;
-      results.map(result => {
-        result.counter = counter;
-        counter++;
-      });
       this.dataSource = new MatTableDataSource(results);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
 
       // to initiate the first column in table
 
-      console.log('length of Data: ' + results.length);
-      console.log('results[0]: ' + results[0].userName);
+      /*console.log('length of Data: ' + results.length);
+      console.log('results[0]: ' + results[0].name);*/
 
     });
   }
 
   onClick() {
-    this.newuserComponent.initializeFormGroup();
+    this.userService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = true;
@@ -60,7 +55,10 @@ export class UserstableComponent implements OnInit {
   }
 
   onEdit(row) {
-    this.newuserComponent.populateForm(row);
+    /*console.log('results[0]: ' + row.userId);
+    console.log('results[0]: ' + row.userName_gmail);
+    console.log('results[0]: ' + row.phone);*/
+    this.userService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = false;
     dialogConfig.autoFocus = false;

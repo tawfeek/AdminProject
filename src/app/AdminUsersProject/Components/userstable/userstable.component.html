@@ -12,12 +12,12 @@
 
     <ng-container matColumnDef="seqID">
       <mat-header-cell *matHeaderCellDef mat-sort-header>seqID</mat-header-cell>
-      <mat-cell *matCellDef="let user" class="seqid">{{user.seqID}}</mat-cell>
+      <mat-cell *matCellDef="let user" class="seqid">{{user.userId}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="userName">
       <mat-header-cell *matHeaderCellDef mat-sort-header>userName</mat-header-cell>
-      <mat-cell *matCellDef="let user" class="username">{{user.userName}}</mat-cell>
+      <mat-cell *matCellDef="let user" class="username">{{user.userName_gmail}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="phone">
@@ -25,14 +25,14 @@
       <mat-cell *matCellDef="let user">{{user.phone}}</mat-cell>
     </ng-container>
 
-    <ng-container matColumnDef="role">
+    <!--<ng-container matColumnDef="role">
       <mat-header-cell *matHeaderCellDef mat-sort-header>role</mat-header-cell>
       <mat-cell *matCellDef="let user">{{user.role}}</mat-cell>
-    </ng-container>
+    </ng-container>-->
 
     <ng-container matColumnDef="loggedin">
       <mat-header-cell *matHeaderCellDef mat-sort-header>loggedin</mat-header-cell>
-      <mat-cell *matCellDef="let user">{{user.loggedin}}</mat-cell>
+      <mat-cell *matCellDef="let user">{{user.login}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="actions">
