@@ -1,9 +1,18 @@
+<div class="search-div">
+
+  <button mat-raised-button (click)="onClick()">
+    <mat-icon>add</mat-icon>New
+  </button>
+
+</div>
+
 <div class="tableDiv">
+
   <mat-table [dataSource]="dataSource" matSort>
 
-    <ng-container matColumnDef="counter">
-      <mat-header-cell *matHeaderCellDef mat-sort-header>counter</mat-header-cell>
-      <mat-cell *matCellDef="let user" class="counter">{{user.counter}}</mat-cell>
+    <ng-container matColumnDef="seqID">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>seqID</mat-header-cell>
+      <mat-cell *matCellDef="let user" class="seqid">{{user.seqID}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="userName">
@@ -26,11 +35,21 @@
       <mat-cell *matCellDef="let user">{{user.loggedin}}</mat-cell>
     </ng-container>
 
-    <mat-header-row *matHeaderRowDef="displayedColumns" color="primary"></mat-header-row>
-    <mat-row *matRowDef="let row; columns:displayedColumns; let i = index"></mat-row>
+    <ng-container matColumnDef="actions">
+      <mat-header-cell *matHeaderCellDef></mat-header-cell>
+      <mat-cell *matCellDef="let row">
+        <button mat-icon-button (click)="onEdit(row)"><mat-icon>launch</mat-icon></button>
+        <button mat-icon-button color="warn"><mat-icon>delete_outline</mat-icon></button>
+      </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns" color="primary" ></mat-header-row>
+    <mat-row *matRowDef="let row; columns:displayedColumns"></mat-row>
 
   </mat-table>
-  <mat-paginator [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
+
+  <mat-paginator
+    [pageSize]="5" [pageSizeOptions]="[5, 10, 25, 100]">
   </mat-paginator>
 
 </div>
@@ -38,3 +57,37 @@
 <div *ngIf>
   <canvas id="canvas">{{ chart }}</canvas>
 </div>
+
+
+
+
+
+  <!--
+  <h1>
+   test
+  </h1>
+
+  <table *ngIf="arrUsers">
+
+    <tr>
+      <th sortable-column="seqID">seqID</th>
+      <th sortable-column="userName">userName</th>
+      <th sortable-column="phone">phone</th>
+      <th sortable-column="role">role</th>
+      <th sortable-column="loggedin">loggedin</th>
+
+    </tr>
+
+
+    <tr *ngFor="let user of arrUsers">
+      <td>{{user.seqID}}</td>
+      <td>{{user.userName}}</td>
+      <td>{{user.phone}}</td>
+      <td>{{user.role}}</td>
+      <td>{{user.loggedin}}</td>
+    </tr>
+  </table>
+
+
+
+-->

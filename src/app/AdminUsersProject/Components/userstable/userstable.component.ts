@@ -1,7 +1,8 @@
+import { NewuserComponent } from './../newuser/newuser.component';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { HttpClient, HttpErrorResponse } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { MatSort, MatSortable, MatTableDataSource, MatPaginator } from '@angular/material';
+import { MatSort, MatSortable, MatTableDataSource, MatPaginator, MatDialog, MatDialogConfig } from '@angular/material';
 import { UserService } from '../../../AdminUsersProject/Services/user.service';
 import { Chart } from 'chart.js';
 import { DataSource } from '@angular/cdk/table';
@@ -17,11 +18,14 @@ export class UserstableComponent implements OnInit {
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns = ['counter', 'userName', 'phone', 'role', 'loggedin'];
+  displayedColumns = ['seqID', 'userName', 'phone', 'role', 'loggedin', 'actions'];
+  // displayedColumns = ['seqID', 'email', 'phone', 'role', 'loggedin', 'actions'];
   dataSource;
   chart = [];
-  dataLength = 0;
-  constructor(private userService: UserService) { }
+
+  constructor(private userService: UserService,
+              private dialog: MatDialog,
+              private newuserComponent: NewuserComponent) { }
 
 
   ngOnInit() {
@@ -39,11 +43,30 @@ export class UserstableComponent implements OnInit {
       this.dataSource.paginator = this.paginator;
 
       // to initiate the first column in table
-      this.dataLength = results.length;
 
       console.log('length of Data: ' + results.length);
       console.log('results[0]: ' + results[0].userName);
 
     });
   }
+
+  onClick() {
+    this.newuserComponent.initializeFormGroup();
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = true;
+    dialogConfig.width = '80%';
+    this.dialog.open(NewuserComponent, dialogConfig);
+  }
+
+  onEdit(row) {
+    this.newuserComponent.populateForm(row);
+    const dialogConfig = new MatDialogConfig();
+    dialogConfig.disableClose = false;
+    dialogConfig.autoFocus = false;
+    dialogConfig.width = '80%';
+    this.dialog.open(NewuserComponent, dialogConfig);
+  }
+
+
 }
