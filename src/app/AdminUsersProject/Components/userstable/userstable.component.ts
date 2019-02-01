@@ -52,6 +52,7 @@ export class UserstableComponent implements OnInit {
     dialogConfig.autoFocus = true;
     dialogConfig.width = '80%';
     this.dialog.open(NewuserComponent, dialogConfig);
+
   }
 
   onEdit(row) {
