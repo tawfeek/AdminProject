@@ -11,7 +11,10 @@ import * as Material from '@angular/material';
 import {UserService} from '../app/AdminUsersProject/Services/user.service';
 import { NewuserComponent } from './AdminUsersProject/Components/newuser/newuser.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
+import {LoginService} from './AdminUsersProject/Services/login.service';
 
 
 @NgModule({
@@ -19,6 +22,8 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
     AppComponent,
     UserstableComponent,
     NewuserComponent,
+    LoginComponent
+
   ],
   imports: [
     BrowserModule,
@@ -41,8 +46,9 @@ import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
     Material.MatSnackBarModule
 
   ],
-  providers: [UserService, NewuserComponent, { provide: MatDialogRef, useValue: {} },
+  providers: [UserService, NewuserComponent, LoginService, { provide: MatDialogRef, useValue: {} },
   { provide: MAT_DIALOG_DATA, useValue: [] }],
+
   bootstrap: [AppComponent],
   entryComponents: [NewuserComponent]
 })
