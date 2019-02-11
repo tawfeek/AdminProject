@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { Login } from '../model/login.model';
 
 @Injectable({
   providedIn: 'root'
@@ -12,18 +13,8 @@ export class LoginService {
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private httpClient: HttpClient ) { }
 
-  getUserDetails(user, pass) {
+  getUserDetails(login) {
 // this will post the user name and passwrd to server
-return this.httpClient.put(this.postLoginUrl, {
- 'email' : user,
-'password' : pass,
-},
-this.httpOptions).subscribe((response) => {
-
-  console.log('Response is: ,' + response);
-},
-(error) => {
-  console.error('An error occurred, ', error);
-});
-}
+return this.httpClient.put(this.postLoginUrl, login, this.httpOptions);
+  }
 }
