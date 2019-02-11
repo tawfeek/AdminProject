@@ -12,13 +12,15 @@ import {MatToolbarModule, MatGridListModule, MatInputModule, MatFormFieldModule,
 import {UserService} from '../app/AdminUsersProject/Services/user.service';
 import { NewuserComponent } from './AdminUsersProject/Components/newuser/newuser.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
+import {LoginService} from './AdminUsersProject/Services/login.service';
 
 @NgModule({
   declarations: [
     AppComponent,
     UserstableComponent,
-    NewuserComponent
+    NewuserComponent,
+    LoginComponent
   ],
   imports: [
     BrowserModule,
@@ -40,7 +42,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
     ReactiveFormsModule
 
   ],
-  providers: [UserService, NewuserComponent],
+  providers: [UserService, NewuserComponent, LoginService],
   bootstrap: [AppComponent],
   entryComponents: [NewuserComponent]
 })
