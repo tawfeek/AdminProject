@@ -38,12 +38,7 @@ export class UserstableComponent implements OnInit {
       this.dataSource = new MatTableDataSource(results);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-
-      // to initiate the first column in table
-
-      /*console.log('length of Data: ' + results.length);
-      console.log('results[0]: ' + results[0].name);*/
-
+      // console.log(results);
     });
   }
 
@@ -67,9 +62,9 @@ export class UserstableComponent implements OnInit {
     this.dialog.open(NewuserComponent, dialogConfig);
   }
 
-  onDelete($key) {
+  onDelete(row) {
     if (confirm('Are you sure to delete this record ?')) {
-      this.userService.deleteUser($key).subscribe();
+      this.userService.deleteUser(row).subscribe();
       this.notificationService.warn('! Deleted successfully');
     }
   }
