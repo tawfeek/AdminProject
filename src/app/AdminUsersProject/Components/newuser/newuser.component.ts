@@ -1,105 +1,101 @@
+import { Role } from './../../model/role.model';
 import { User } from './../../model/user.model';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormGroup, FormControl, FormArray } from '@angular/forms';
 import { MatDialogRef } from '@angular/material';
 import * as _ from 'lodash';
 import { UserService } from './../../Services/user.service';
+import { NotificationService } from './../../Services/notification.service';
+import { UserstableComponent } from '../userstable/userstable.component';
+
 @Component({
   selector: 'app-newuser',
   templateUrl: './newuser.component.html',
   styleUrls: ['./newuser.component.css']
 })
+
 export class NewuserComponent implements OnInit {
 
   mydate = Date.now();
 
   user: User;
   users: User[];
+  /*roles = [{ role: 'Role 1', checked: false }, { role: 'Role 2', checked: false},
+  { role: 'Role 3', checked: false }, { role: 'Role 4', checked: false }];*/
+  roles: Role[];
 
-  constructor(public userService: UserService) { }
-
-  /*form: FormGroup = new FormGroup({
-    $key: new FormControl(null),
-    fullName: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.email),
-    phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
-    password: new FormControl('', [Validators.required, Validators.minLength(6)])
-  });*/
-
+  constructor(public userService: UserService,
+              private notificationService: NotificationService,
+              public dialogRef: MatDialogRef<NewuserComponent>) { }
   getUsers(): void {
     this.userService.getUser()
     .subscribe(users => this.users = users);
-   }
+  }
 
    ngOnInit(): void {
       this.getUsers();
+      /*this.users.forEach((item) => {
+        this.roles = item.roles;
+      });*/
+      /*for (let i = 0; i < this.users.length; i++) {
+        this.roles[i] = this.users[i].roles;
+      }
+      console.log(this.roles);*/
     }
 
-  /*initializeFormGroup() {
-    this.form.setValue({
-      $key: null,
-      fullName: '',
-      email: '',
-      phone: '',
-      password: ''
-    });
-  }*/
-  /*onSubmit(): void {
-    if (this.form.valid) {
-      this.userService.addUser(this.form.value)
+  onSubmit(): void {
+    if (this.userService.form.valid) {
+
+      if (!this.userService.form.get('$key').value) {
+        this.userService.addUser(this.userService.form.value)
         .subscribe(user => {
-          this.users.push({
-            userId: user.userId,
-            name: user.name,
-            userName_gmail: user.userName_gmail,
-            phone: user.phone,
-            password: user.password,
-            login: user.login
-          });
+          this.users.push(user);
         });
-    this.form.reset();
-    this.initializeFormGroup();
+
+      } else {
+        this.userService.updateUser(this.userService.form.value).subscribe();
+      }
+
+    this.userService.form.reset();
+    this.userService.initializeFormGroup();
+    this.notificationService.success(':: Submitted successfully');
+    this.onClose();
     }
-  }*/
+  }
+
   onClear() {
+    /*this.roles.forEach((item) => {
+      item.checked = false;
+    });*/
     this.userService.form.reset();
     this.userService.initializeFormGroup();
   }
 
-  /*populateForm(user) {
-    this.userService.form.setValue({
-      $key: null,
-      fullName: '',
-      email: '',
-      phone: '',
-      password: ''
-    });
-    // this.form.setValue(_.omit(user, 'login'));
-    // this.form.patchValue(user);
+  /*UnCheckAll(chk) {
+    for (let i = 0; i < this.roles.length; i++) {
+      this.roles[i].isSelected = false;
+    }
   }*/
 
+  /*uncheckAll(ev) {
+    this.roles.forEach(x => x.state = ev.target.checked);
+  }*/
 
-  /*EditFormGroup() {
-    this.form.setValue({
-      $key: null,
-      fullName: 'Tawfeek Masalha',
-      email: 'test',
-      phone: '',
-      password: ''
-    });
-
-    console.log('fullName');
+  onClose() {
+    this.userService.form.reset();
+    this.userService.initializeFormGroup();
+    this.dialogRef.close();
   }
 
-  onEdit() {
-    // this.form.reset();
-    this.EditFormGroup();
-  }*/
+  onChange(role: string, isChecked: boolean) {
+    const roleFormArray = <FormArray>this.userService.form.controls.roles;
 
-  /*onClose() {
-    this.form.reset();
-    this.initializeFormGroup();
-    this.dialogRef.close();
-  }*/
+    if (isChecked) {
+      roleFormArray.push(new FormControl(role));
+    } else {
+      const index = roleFormArray.controls.findIndex(x => x.value === role);
+      roleFormArray.removeAt(index);
+    }
+  }
 
 }

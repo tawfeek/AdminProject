@@ -1,17 +1,10 @@
+import { Role } from './role.model';
 export interface User {
-    userId: string;
+    id: string;
     name: string;
-    userName_gmail: string;
+    email: string;
     phone: string;
     password: String;
     login: string;
+    roles: Role[];
 }
-
-/*export interface User {
-  seqID: string ;
-  userName: string ;
-  phone: string ;
-  role: string ;
-  loggedin: string ;
-  counter?: number;
-}*/

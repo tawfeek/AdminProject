@@ -7,13 +7,15 @@ import { UserstableComponent } from '../app/AdminUsersProject/Components/usersta
 
 import {  HttpClientModule } from '@angular/common/http';
 import { BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import { MatTableModule, MatSortModule, MatPaginatorModule, MatButtonModule, MatIconModule, MatCheckboxModule } from '@angular/material';
-import {MatToolbarModule, MatGridListModule, MatInputModule, MatFormFieldModule, MatDialogModule} from '@angular/material';
+import * as Material from '@angular/material';
 import {UserService} from '../app/AdminUsersProject/Services/user.service';
 import { NewuserComponent } from './AdminUsersProject/Components/newuser/newuser.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
+
+import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
 import {LoginService} from './AdminUsersProject/Services/login.service';
+
 
 @NgModule({
   declarations: [
@@ -21,28 +23,32 @@ import {LoginService} from './AdminUsersProject/Services/login.service';
     UserstableComponent,
     NewuserComponent,
     LoginComponent
+
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     BrowserAnimationsModule,
-    MatTableModule,
-    MatSortModule,
-    MatPaginatorModule,
-    MatDialogModule,
-    MatButtonModule,
-    MatIconModule,
-    MatToolbarModule,
-    MatGridListModule,
-    MatInputModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
+    Material.MatTableModule,
+    Material.MatSortModule,
+    Material.MatPaginatorModule,
+    Material.MatDialogModule,
+    Material.MatButtonModule,
+    Material.MatIconModule,
+    Material.MatToolbarModule,
+    Material.MatGridListModule,
+    Material.MatInputModule,
+    Material.MatFormFieldModule,
+    Material.MatCheckboxModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    Material.MatSnackBarModule
 
   ],
-  providers: [UserService, NewuserComponent, LoginService],
+  providers: [UserService, NewuserComponent, LoginService, { provide: MatDialogRef, useValue: {} },
+  { provide: MAT_DIALOG_DATA, useValue: [] }],
+
   bootstrap: [AppComponent],
   entryComponents: [NewuserComponent]
 })
