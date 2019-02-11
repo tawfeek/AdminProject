@@ -13,8 +13,8 @@ export class LoginService {
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private httpClient: HttpClient ) { }
 
-  getUserDetails(login) {
+  getUserDetails(login: Login) {
 // this will post the user name and passwrd to server
-return this.httpClient.put(this.postLoginUrl, login, this.httpOptions);
+return this.httpClient.put(this.postLoginUrl, login, this.httpOptions).subscribe(response => console.log(response));
   }
 }
