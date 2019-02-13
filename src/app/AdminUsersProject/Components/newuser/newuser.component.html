@@ -10,7 +10,7 @@
 
     <mat-grid-tile>
       <div class="controles-container">
-        <input type="hidden" formControlName="$key">
+        <input formControlName="$key" type="hidden">
         <br>
         <mat-form-field>
           <input formControlName="name" matInput placeholder="Full Name*">
@@ -26,15 +26,24 @@
           <mat-error *ngIf="userService.form.controls['phone'].errors?.minlength">Minimum 10 charactors needed.</mat-error>
         </mat-form-field>
         <mat-form-field>
-          <input formControlName="password" matInput placeholder="Password*" type=password>
+          <input formControlName="password" matInput placeholder="Password*" type="password">
         </mat-form-field>
       </div>
     </mat-grid-tile>
 
     <mat-grid-tile>
-      <div class="add-bottom-padding" *ngFor="let data of roles">
-        <input type="checkbox" [checked]="data.checked" (change)="onChange(data.role, $event.target.checked)">{{data.role}}
+      <div class="add-bottom-padding" *ngFor="let data of userService.roles">
+        <input formArrayName="roles" type="checkbox" [checked]="data.checked"
+        (change)="onChange(data.role_name, $event.target.checked)">{{data.role_name}}
 
+        <!--<div class="add-bottom-padding" *ngFor="let data of roles2">
+          <input formArrayName="roles" type="checkbox" [checked]=data.checked
+          (change)="onChange(data.role, $event.target.checked)">{{data.role}}-->
+
+          <!--<div class="add-bottom-padding">
+              <label formArrayName="roles" *ngFor="let data of roles">
+                  <input type="checkbox" (change)="onChange(data.role_name, $event.target.checked)">{{data.role_name}}
+                </label>-->
         <!--<mat-checkbox (change)="onChange(data.role, $event.target.checked)">{{data.role}}</mat-checkbox>-->
         <!--<mat-checkbox>Role 1</mat-checkbox>
         <br>
@@ -57,7 +66,7 @@
 </mat-grid-list>
 </form>
 
-<pre>Form values: {{userService.form.value | json}}</pre>
+<!--<pre>Form values: {{userService.form.value | json}}</pre>-->
 
 
 

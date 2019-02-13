@@ -7,6 +7,7 @@ import { MatSort, MatSortable, MatTableDataSource, MatPaginator, MatDialog, MatD
 import { UserService} from '../../../AdminUsersProject/Services/user.service';
 import { Chart } from 'chart.js';
 import { DataSource } from '@angular/cdk/table';
+import { Role } from '../../model/role.model';
 
 
 @Component({
@@ -38,7 +39,7 @@ export class UserstableComponent implements OnInit {
       this.dataSource = new MatTableDataSource(results);
       this.dataSource.sort = this.sort;
       this.dataSource.paginator = this.paginator;
-      // console.log(results);
+
     });
   }
 
@@ -63,11 +64,14 @@ export class UserstableComponent implements OnInit {
   }
 
   onDelete(row) {
-    if (confirm('Are you sure to delete this record ?')) {
+    if (confirm('Are you sure you want to permanently delete this user?')) {
       this.userService.deleteUser(row).subscribe();
       this.notificationService.warn('! Deleted successfully');
     }
+    this.refresh();
   }
 
-
+  refresh(): void {
+    window.location.reload();
+   }
 }

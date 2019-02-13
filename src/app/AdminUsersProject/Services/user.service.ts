@@ -1,21 +1,27 @@
 import { FormBuilder, FormArray } from '@angular/forms';
-import { Injectable } from '@angular/core';
+import { Injectable, Optional } from '@angular/core';
 import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { User } from '../model/user.model';
 import { Observable} from 'rxjs';
 import { NewuserComponent } from '../Components/newuser/newuser.component';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { catchError, map, tap } from 'rxjs/operators';
+import { Role } from '../model/role.model';
+import { RoleService } from './role.service';
+
 @Injectable({
   providedIn: 'root'
 })
 export class UserService {
-  // private serviceUrl = './assets/us.json';
-  private serviceUrl = 'http://localhost:8080/';
 
+  private serviceUrl = 'http://localhost:8080/';
   httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
-  constructor(private http: HttpClient) { }
+  roles: Role[];
+
+  constructor(private http: HttpClient,
+              public fb: FormBuilder,
+              private roleService: RoleService) { }
 
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
@@ -27,6 +33,16 @@ export class UserService {
   });
 
   initializeFormGroup() {
+    this.roleService.getRoles().subscribe(roles => {
+      if (!roles) {
+        return;
+      }
+      this.roles = roles;
+
+      this.roles.forEach(x => {
+        x.checked = false;
+      });
+    });
     const roleFormArray = <FormArray>this.form.controls.roles;
     for (let i = roleFormArray.length - 1; i >= 0; i--) {
       roleFormArray.removeAt(i);
@@ -49,9 +65,38 @@ export class UserService {
       email: user.email,
       phone: user.phone,
       password: user.password,
-      roles: [] // temp
-      // roles: user.roles
+      roles: []
     });
+    this.form.setControl('roles', this.setFormRoles(user.roles));
+  }
+
+  setFormRoles(roleSets): FormArray {
+    const roleFormArray = new FormArray([]);
+    this.roleService.getRoles().subscribe(roles => {
+      if (!roles) {
+        return;
+      }
+      this.roles = roles;
+
+      this.roles.forEach(x => {
+        x.checked = false;
+      });
+
+      roleSets.forEach(r => {
+        roleFormArray.push(this.fb.group({
+          roleId: r.roleId,
+          role_name: r.role_name,
+          description: r.description
+        }));
+
+        this.roles.forEach(e => {
+          if (e.role_name === r.role_name) {
+            e.checked = true;
+          }
+        });
+      });
+    });
+  return roleFormArray;
   }
 
   getUser(): Observable<User[]> {
@@ -68,7 +113,7 @@ export class UserService {
   }
 
    deleteUser(user): Observable<User> {
-    const url = `${this.serviceUrl + 'deleteUser'}/${user.userId}`;
+    const url = `${this.serviceUrl + 'deleteUser'}/${user.id}`;
     return this.http.delete<User>(url, this.httpOptions);
    }
 

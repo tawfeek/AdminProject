@@ -6,6 +6,7 @@ import { MatDialogRef } from '@angular/material';
 import * as _ from 'lodash';
 import { UserService } from './../../Services/user.service';
 import { NotificationService } from './../../Services/notification.service';
+import { RoleService } from './../../Services/role.service';
 import { UserstableComponent } from '../userstable/userstable.component';
 
 @Component({
@@ -20,28 +21,32 @@ export class NewuserComponent implements OnInit {
 
   user: User;
   users: User[];
-  /*roles = [{ role: 'Role 1', checked: false }, { role: 'Role 2', checked: false},
-  { role: 'Role 3', checked: false }, { role: 'Role 4', checked: false }];*/
-  roles: Role[];
+
+  // roles: Role[];
+  /*roles2 = [{ role: 'role1', checked: true }, { role: 'role2', checked: false},
+  { role: 'role3', checked: true }];*/
 
   constructor(public userService: UserService,
               private notificationService: NotificationService,
+              private roleService: RoleService,
               public dialogRef: MatDialogRef<NewuserComponent>) { }
-  getUsers(): void {
-    this.userService.getUser()
-    .subscribe(users => this.users = users);
-  }
 
-   ngOnInit(): void {
-      this.getUsers();
-      /*this.users.forEach((item) => {
-        this.roles = item.roles;
-      });*/
-      /*for (let i = 0; i < this.users.length; i++) {
-        this.roles[i] = this.users[i].roles;
+  ngOnInit(): void {
+
+    this.userService.getUser().subscribe(users => this.users = users);
+
+    /*this.roleService.getRoles().subscribe(roles => {
+      if (!roles) {
+        return;
       }
-      console.log(this.roles);*/
-    }
+      this.roles = roles;
+
+      this.roles.forEach(r => {
+        r.checked = false;
+      });
+      console.log(this.roles);
+    });*/
+  }
 
   onSubmit(): void {
     if (this.userService.form.valid) {
@@ -60,26 +65,16 @@ export class NewuserComponent implements OnInit {
     this.userService.initializeFormGroup();
     this.notificationService.success(':: Submitted successfully');
     this.onClose();
+    this.refresh();
     }
   }
-
+  refresh(): void {
+    window.location.reload();
+   }
   onClear() {
-    /*this.roles.forEach((item) => {
-      item.checked = false;
-    });*/
     this.userService.form.reset();
     this.userService.initializeFormGroup();
   }
-
-  /*UnCheckAll(chk) {
-    for (let i = 0; i < this.roles.length; i++) {
-      this.roles[i].isSelected = false;
-    }
-  }*/
-
-  /*uncheckAll(ev) {
-    this.roles.forEach(x => x.state = ev.target.checked);
-  }*/
 
   onClose() {
     this.userService.form.reset();
@@ -87,13 +82,23 @@ export class NewuserComponent implements OnInit {
     this.dialogRef.close();
   }
 
-  onChange(role: string, isChecked: boolean) {
+  onChange(roleName: string, isChecked: boolean) {
     const roleFormArray = <FormArray>this.userService.form.controls.roles;
 
     if (isChecked) {
-      roleFormArray.push(new FormControl(role));
+      // roleFormArray.push(new FormControl(role));
+      this.userService.roles.forEach(r => {
+        if (r.role_name === roleName) {
+          roleFormArray.push(this.userService.fb.group({
+            roleId: r.roleId,
+            role_name: roleName,
+            description: r.description,
+          }));
+        }
+      });
     } else {
-      const index = roleFormArray.controls.findIndex(x => x.value === role);
+      const index = roleFormArray.controls.findIndex(x => x.value.role_name === roleName);
+      console.log(index, roleName);
       roleFormArray.removeAt(index);
     }
   }

@@ -8,14 +8,14 @@ import { Login } from '../../model/login.model';
   styleUrls: ['./login.component.css']
 })
 export class LoginComponent implements OnInit {
- 
+
   constructor(private loginService: LoginService ) { }
 
   ngOnInit() {
   }
 
 
-  loginUser(event) {
+  /*loginUser(event) {
     event.preventDefault();
     const target = event.target;
     const username = target.querySelector('#username').value;
@@ -24,6 +24,6 @@ export class LoginComponent implements OnInit {
     login : new Login(username, password);
     this.loginService.getUserDetails( login );
     console.log(username, password);
-  }
+  }*/
 
 }
