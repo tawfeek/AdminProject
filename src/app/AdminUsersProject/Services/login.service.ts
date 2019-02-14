@@ -20,7 +20,11 @@ export class LoginService {
 
 return this.httpClient
 .put(this.postLoginUrl, login, this.httpOptions)
-.subscribe(() => this.router.navigate(['/loggitor']));
+.subscribe(
+  (response) => {
+    console.log(response);
+    this.router.navigate(['/loggitor'], { queryParams: { id : 2 }});
+});
 // .subscribe(response => console.log(response));
   }
 }
