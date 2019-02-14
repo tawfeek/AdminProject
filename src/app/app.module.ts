@@ -15,6 +15,7 @@ import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
 import {LoginService} from './AdminUsersProject/Services/login.service';
+import { LoggitorroutingComponent } from './AdminUsersProject/Components/loggitorrouting/loggitorrouting.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import {LoginService} from './AdminUsersProject/Services/login.service';
     AppComponent,
     UserstableComponent,
     NewuserComponent,
-    LoginComponent
+    LoginComponent,
+    LoggitorroutingComponent
 
   ],
   imports: [

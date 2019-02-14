@@ -1,6 +1,10 @@
-<form (submit)="loginUser($event)" >
-  <input type="text" placeholder="UserName" id="username">
-  <input type="password" placeholder="Password" id="password">
-  <input type="submit" value="Submit">
-  
+<form (submit)="loginUser($event)">
+  <div class="form-group">
+    <input type="text" placeholder="UserName" id="username">
+  </div>
+  <div class="form-group">
+    <input type="password" placeholder="Password" id="password">
+  </div>
+  <input type="submit" value="Submit" class="submit-login-btn">
+
 </form>
