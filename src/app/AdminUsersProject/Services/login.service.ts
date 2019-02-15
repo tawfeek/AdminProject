@@ -10,6 +10,8 @@ import { Router } from '@angular/router';
 
 
 export class LoginService {
+  routLink;
+  routId;
   private postLoginUrl = 'http://localhost:8080/login';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private httpClient: HttpClient,
@@ -23,7 +25,9 @@ return this.httpClient
 .subscribe(
   (response) => {
     console.log(response);
-    this.router.navigate(['/loggitor'], { queryParams: { id : 2 }});
+    this.routId = 2;
+    this.routLink = '/loggitor' + '/' + this.routId;
+    this.router.navigate([this.routLink]);
 });
 // .subscribe(response => console.log(response));
   }
