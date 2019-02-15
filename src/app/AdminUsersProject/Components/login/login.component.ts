@@ -22,10 +22,10 @@ export class LoginComponent implements OnInit {
     const username = target.querySelector('#username').value;
     const password = target.querySelector('#password').value;
 
-    this.login = new Login(username, password);
+   // this.login = new Login(username, password);
    // login : new Login(username, password);
-    this.loginService.getUserDetails( this.login );
-    console.log(username, password);
+    this.loginService.getUserDetails( username, password );
+    console.log('what i send to server: ' + username, password);
   }
 
 }

@@ -11,19 +11,20 @@ import { Router } from '@angular/router';
 
 export class LoginService {
   idToSend: number;
-  private postLoginUrl = 'http://localhost:8080/login';
+  private postLoginUrl = 'http://localhost:8083/login';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private httpClient: HttpClient,
      private router: Router ) { }
 
-  getUserDetails(login: Login) {
+  getUserDetails(username: string, password: string) {
 // this will post the user name and passwrd to server
 
 return this.httpClient
-.put(this.postLoginUrl, login, this.httpOptions)
+.put(this.postLoginUrl, {'email' : username, 'password': password}, this.httpOptions)
 .subscribe(
   (response) => {
-    console.log('loginResponse: ' + response);
+   // console.log('loginResponse: ' + response.toString);
+   this.idToSend = 2;
     this.router.navigate(['/loggitor'], { queryParams: { id : this.idToSend }});
 });
 // .subscribe(response => console.log(response));
