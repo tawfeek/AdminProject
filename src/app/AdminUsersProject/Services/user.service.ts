@@ -14,7 +14,8 @@ import { RoleService } from './role.service';
 })
 export class UserService {
 
-  private serviceUrl = 'http://localhost:8080/';
+  // private serviceUrl = 'http://localhost:8080/';
+  private serviceUrl = 'https://adminfinal5.herokuapp.com/';
   httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
   roles: Role[];
@@ -29,7 +30,7 @@ export class UserService {
     email: new FormControl('', Validators.email),
     phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    roles: new FormArray([])
+    roles: new FormArray([], [Validators.required])
   });
 
   initializeFormGroup() {

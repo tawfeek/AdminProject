@@ -2,10 +2,12 @@ import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { UserstableComponent } from './AdminUsersProject/Components/userstable/userstable.component';
 import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
+import { RolestableComponent } from './AdminUsersProject/Components/rolestable/rolestable.component';
 
 const routes: Routes = [
-  {path: '', component: UserstableComponent},
-  {path: 'login', component: LoginComponent}
+  {path: 'users', component: UserstableComponent},
+  {path: 'login', component: LoginComponent},
+  {path: '', component: RolestableComponent}
 ];
 
 

@@ -17,8 +17,6 @@ import { UserstableComponent } from '../userstable/userstable.component';
 
 export class NewuserComponent implements OnInit {
 
-  mydate = Date.now();
-
   user: User;
   users: User[];
 

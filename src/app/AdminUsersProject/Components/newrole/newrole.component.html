@@ -1,0 +1,87 @@
+<mat-toolbar>
+    <span>{{roleService.form.controls['$key'].value?"Modify Role":"New Role"}}</span>
+    <span class="fill-remaining-space"></span>
+    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
+  </mat-toolbar>
+
+  <form [formGroup]= "roleService.form" class="normal-form">
+
+    <mat-grid-list cols="2" rowHeight="2:1">
+
+      <mat-grid-tile>
+        <div class="controles-container">
+          <input formControlName="$key" type="hidden">
+          <br>
+          <mat-form-field>
+            <input formControlName="role_name" matInput placeholder="Name*">
+            <mat-error>Name is required.</mat-error>
+          </mat-form-field>
+          <mat-form-field>
+            <input formControlName="description" matInput placeholder="Description*">
+            <mat-error>Description is required.</mat-error>
+          </mat-form-field>
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <div class="add-bottom-padding" *ngFor="let data of roleService.permissions">
+          <input formArrayName="permissions" type="checkbox" [checked]="data.checked"
+          (change)="onChange(data.per_name, $event.target.checked)">{{data.per_name}}
+        </div>
+      </mat-grid-tile>
+
+      <mat-grid-tile>
+        <div class="button-row">
+          <button mat-raised-button color="primary" type="submit" [disabled]="roleService.form.invalid" (click)="onSubmit()">Save</button>
+          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
+        </div>
+      </mat-grid-tile>
+
+  </mat-grid-list>
+  </form>
+
+  <pre>Form values: {{roleService.form.value | json}}</pre>
+
+
+
+
+
+
+
+
+
+
+
+
+  <!--
+  <h1>
+    Amdocs Log Admin System New User at date:
+    {{mydate | date: 'dd/mm/yyyy, HH:mm'}}
+  </h1>
+
+
+  <h2>Personal info</h2>
+
+  <form>
+
+    <div class="form-group">
+      <label for="name">Name</label>
+      <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': f.name.errors }"/>
+    </div>
+
+    <div class="form-group">
+      <label for="email">Email</label>
+      <input type="text" formControlName="email" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="phone">Phone</label>
+      <input type="text" formControlName="phone" class="form-control"/>
+    </div>
+
+    <div class="form-group">
+      <label for="password">Password</label>
+      <input type="password" formControlName="password" class="form-control"/>
+    </div>
+
+  </form>-->
