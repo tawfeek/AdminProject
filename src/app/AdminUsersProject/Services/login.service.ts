@@ -10,8 +10,7 @@ import { Router } from '@angular/router';
 
 
 export class LoginService {
-  routLink;
-  routId;
+  idToSend: number;
   private postLoginUrl = 'http://localhost:8080/login';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private httpClient: HttpClient,
@@ -24,10 +23,8 @@ return this.httpClient
 .put(this.postLoginUrl, login, this.httpOptions)
 .subscribe(
   (response) => {
-    console.log(response);
-    this.routId = 2;
-    this.routLink = '/loggitor' + '/' + this.routId;
-    this.router.navigate([this.routLink]);
+    console.log('loginResponse: ' + response);
+    this.router.navigate(['/loggitor'], { queryParams: { id : this.idToSend }});
 });
 // .subscribe(response => console.log(response));
   }

@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-loggitorrouting',
@@ -7,10 +8,23 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoggitorroutingComponent implements OnInit {
 
-  constructor() { }
+  routid: string;
+  constructor( private route: ActivatedRoute) {
+   }
 
   ngOnInit() {
-    window.location.href = 'https://loggitor-fe.herokuapp.com/home';
+
+    this.routid = this.route.snapshot.queryParamMap.get('id');
+    console.log('this.routid ' + this.routid);
+    this.sendToActionHomewithId(this.routid);
+  }
+
+
+  sendToActionHomewithId(routid: string): void {
+    if (this.routid != null) {
+      window.location.href =
+      'https://loggitor-fe.herokuapp.com/home/' + this.routid;
+    }
   }
 
 }
