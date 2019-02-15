@@ -9,7 +9,10 @@ import { Login } from '../../model/login.model';
 })
 export class LoginComponent implements OnInit {
 
+
+
   login: Login;
+
   constructor(private loginService: LoginService ) { }
 
   ngOnInit() {
@@ -22,10 +25,13 @@ export class LoginComponent implements OnInit {
     const username = target.querySelector('#username').value;
     const password = target.querySelector('#password').value;
 
-   // this.login = new Login(username, password);
-   // login : new Login(username, password);
+
+    
+  }
+
     this.loginService.getUserDetails( username, password );
     console.log('what i send to server: ' + username, password);
   }
+
 
 }

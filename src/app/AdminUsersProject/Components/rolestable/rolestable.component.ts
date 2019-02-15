@@ -8,31 +8,29 @@ import { UserService} from '../../../AdminUsersProject/Services/user.service';
 import { Chart } from 'chart.js';
 import { DataSource } from '@angular/cdk/table';
 import { Role } from '../../model/role.model';
-
+import { RoleService } from '../../Services/role.service';
+import { NewroleComponent } from '../newrole/newrole.component';
 
 @Component({
-  selector: 'app-userstable',
-  templateUrl: './userstable.component.html',
-  styleUrls: ['./userstable.component.css']
+  selector: 'app-rolestable',
+  templateUrl: './rolestable.component.html',
+  styleUrls: ['./rolestable.component.css']
 })
-export class UserstableComponent implements OnInit {
+export class RolestableComponent implements OnInit {
 
   @ViewChild(MatSort) sort: MatSort;
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  displayedColumns = ['seqID', 'userName', 'phone', 'loggedin', 'actions'];
-  // displayedColumns = ['seqID', 'email', 'phone', 'role', 'loggedin', 'actions'];
+  displayedColumns = ['seqID', 'Role name', 'Description', 'Assigned', 'actions'];
   dataSource;
-  chart = [];
 
-  constructor(private userService: UserService,
+  constructor(private roleService: RoleService,
               private notificationService: NotificationService,
-              private dialog: MatDialog,
-              private newuserComponent: NewuserComponent) { }
+              private dialog: MatDialog) { }
 
 
   ngOnInit() {
-    this.userService.getUser().subscribe(results => {
+    this.roleService.getRoles_Permissions().subscribe(results => {
       if (!results) {
         return;
       }
@@ -44,28 +42,28 @@ export class UserstableComponent implements OnInit {
   }
 
   onClick() {
-    this.userService.initializeFormGroup();
+    this.roleService.initializeFormGroup();
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = true;
     dialogConfig.width = '80%';
-    this.dialog.open(NewuserComponent, dialogConfig);
+    this.dialog.open(NewroleComponent, dialogConfig);
 
   }
 
   onEdit(row) {
 
-    this.userService.populateForm(row);
+    this.roleService.populateForm(row);
     const dialogConfig = new MatDialogConfig();
     dialogConfig.disableClose = true;
     dialogConfig.autoFocus = false;
     dialogConfig.width = '80%';
-    this.dialog.open(NewuserComponent, dialogConfig);
+    this.dialog.open(NewroleComponent, dialogConfig);
   }
 
   onDelete(row) {
-    if (confirm('Are you sure you want to permanently delete this user?')) {
-      this.userService.deleteUser(row).subscribe();
+    if (confirm('Are you sure you want to permanently delete this role?')) {
+      // this.roleService.deleteRole(row).subscribe();
       this.notificationService.warn('! Deleted successfully');
     }
     this.refresh();
@@ -73,5 +71,6 @@ export class UserstableComponent implements OnInit {
 
   refresh(): void {
     window.location.reload();
-   }
+  }
+
 }
