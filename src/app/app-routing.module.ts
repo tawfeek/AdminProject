@@ -8,6 +8,15 @@ const routes: Routes = [
   {path: 'users', component: UserstableComponent},
   {path: 'login', component: LoginComponent},
   {path: '', component: RolestableComponent}
+
+import { LoggitorroutingComponent} from './AdminUsersProject/Components/loggitorrouting/loggitorrouting.component';
+
+
+const routes: Routes = [
+  {path: 'home', component: UserstableComponent},
+  {path: '', component: LoginComponent},
+  {path: 'loggitor', component: LoggitorroutingComponent}
+
 ];
 
 
