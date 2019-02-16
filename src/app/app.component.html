@@ -1,4 +1,63 @@
-<ul>
+<mat-sidenav-container class="example-container" >
+</mat-sidenav-container>
+<div class="ex " (click)="close();closeNav();" id="mySidenav">
+<mat-sidenav #sidenav  (keydown.escape)="close(); closeNav();" disableClose class="text-white bg-dark">
+   <a class="btn-dialog-close overlay" mat-stroked-button (click)="close();closeNav();" tabIndex="-1"><mat-icon>clear</mat-icon></a>
+<p> <button type="button" class="btn" style="padding: 12px 16px;" routerLink="home" (click)="refreshHref();">Home</button></p>
+<p><button type="button" class="btn" style="padding: 12px 16px;" routerLink="/users" (click)="refreshHref();">Users List</button></p>
+<p><button type="button" class="btn" style="padding: 12px 16px;" routerLink="/roles" (click)="refreshHref();">Roles List</button></p>
+</mat-sidenav>
+</div>
+
+<div class="ul" id="main2">
+     <div class="btn-group btn-group-toggle" data-toggle="buttons">
+ <i class="material-icons">
+     <button mat-button (click)="sidenav.open();openNav();"><mat-icon>menu</mat-icon></button>
+</i>
+     <!-- <button type="button" class="btn " style="padding: 12px 16px;" routerLink="home"> Home</button> -->
+     <!-- <button id="button-split" type="button" dropdownToggle class="btn btn-dark dropdown-toggle dropdown-toggle-split"
+             aria-controls="dropdown-split">
+       <span class="caret"></span>
+       <span class="sr-only">Split button!</span>
+     </button>
+     <ul id="dropdown-split" *dropdownMenu class="dropdown-menu ul"
+         role="menu" aria-labelledby="button-split">
+       <li role="menuitem"><a class="dropdown-item" routerLink="/eventlist">Event List</a></li>
+       <li role="menuitem"><a class="dropdown-item" routerLink="/addAction">Add Action</a></li>
+       <li role="menuitem"><a class="dropdown-item" href="#">Something else
+         here</a></li>
+       <li class="divider dropdown-divider"></li>
+       <li role="menuitem"><a class="dropdown-item" href="#">Separated link</a>
+       </li>
+     </ul> -->
+   </div>
+
+   <span><button class="btn" (click)="LoggitorURL();"><span>Loggitor</span></button></span>
+   <span><button class="btn" (click)="ActionURL();"><span>Action</span></button></span>
+   <span><button class="btn"(click)="AdminURL();"><span>Admin</span></button></span>
+   <span><button class="btn" routerLink="about" (click)="refreshHref();"><span>About</span></button></span>
+   <li style="float: right"><img src="./assets/a.png" alt="Amdocs Logo" height="35px"></li>
+</div><br>
+
+
+ <br>
+ <div class="container"  id="main">
+
+
+   <div class="container"  *ngIf="router != '/about'">
+
+          <H2 align="center">Log Admin System Status at  <span>{{jstoday}}</span></H2>
+          <br><br>
+
+   </div>
+
+   <router-outlet></router-outlet>
+
+
+
+</div>
+
+<!--<ul>
 
   <li class="dropdown">
     <a href="#home" class="btn-secondary dropdown-toggle">Home</a>
@@ -27,7 +86,8 @@
 
   <!-- <app-userstable></app-userstable> -->
 <router-outlet></router-outlet>
-</div>
+
 
 
 <!--<app-newuser></app-newuser>-->
+

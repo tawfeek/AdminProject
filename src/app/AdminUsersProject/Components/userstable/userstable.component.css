@@ -10,14 +10,24 @@
       text-align:center;
       align-items: center;
       min-width: 200px;
+      background-color:#343A40;
 
   }
-
+  mat-paginator{
+    background-color:#343A40;
+    color:white;
+  }
+  mat-cell{
+    color:white;
+  }
+  mat-header-cell{
+    color:white;
+  }
   .seqid{
       width: 10px;
   }
 
-  /*
+
   caption {
       caption-side:bottom;
       font-weight:bold;
@@ -26,6 +36,7 @@
   }
 
   table,th, td {
+
       border: 1px solid gray;
   }
 
@@ -45,4 +56,4 @@
       background-color: #F0F0F0;
     }
 
-    */
+

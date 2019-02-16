@@ -7,7 +7,7 @@ import { RolestableComponent } from './AdminUsersProject/Components/rolestable/r
 const routes: Routes = [
   {path: 'users', component: UserstableComponent},
   {path: 'login', component: LoginComponent},
-  {path: '', component: RolestableComponent}
+  {path: 'roles', component: RolestableComponent}
 ];
 
 
