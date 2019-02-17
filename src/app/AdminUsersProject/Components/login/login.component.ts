@@ -9,21 +9,29 @@ import { Login } from '../../model/login.model';
 })
 export class LoginComponent implements OnInit {
 
+
+
+  login: Login;
+
   constructor(private loginService: LoginService ) { }
 
   ngOnInit() {
   }
 
 
-  /*loginUser(event) {
+  loginUser(event) {
     event.preventDefault();
     const target = event.target;
     const username = target.querySelector('#username').value;
     const password = target.querySelector('#password').value;
 
-    login : new Login(username, password);
-    this.loginService.getUserDetails( login );
-    console.log(username, password);
-  }*/
+
+    
+  }
+
+    this.loginService.getUserDetails( username, password );
+    console.log('what i send to server: ' + username, password);
+  }
+
 
 }

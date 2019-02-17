@@ -15,9 +15,13 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
 import {LoginService} from './AdminUsersProject/Services/login.service';
+
 import { RolestableComponent } from './AdminUsersProject/Components/rolestable/rolestable.component';
 import { RoleService } from './AdminUsersProject/Services/role.service';
 import { NewroleComponent } from './AdminUsersProject/Components/newrole/newrole.component';
+
+import { LoggitorroutingComponent } from './AdminUsersProject/Components/loggitorrouting/loggitorrouting.component';
+
 
 
 @NgModule({
@@ -26,8 +30,12 @@ import { NewroleComponent } from './AdminUsersProject/Components/newrole/newrole
     UserstableComponent,
     NewuserComponent,
     LoginComponent,
+
     RolestableComponent,
     NewroleComponent
+
+    LoggitorroutingComponent
+
 
   ],
   imports: [
