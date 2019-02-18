@@ -28,7 +28,7 @@ return this.httpClient
   (response: KeyLogin) => {
     // console.log('my login response:' + JSON.stringify(response.key));
      this.myKeyLogin = new KeyLogin(response.key);
-   //  console.log('my login response:' + this.myKeyLogin.key);
+     console.log('my key:' + this.myKeyLogin.key);
      this.idToSend = 2;
      if (this.myKeyLogin.key > 0) {
       this.router.navigate(['/loggitor'], { queryParams: { id : this.myKeyLogin.key }});
