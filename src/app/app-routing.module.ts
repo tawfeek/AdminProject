@@ -6,12 +6,12 @@ import { RolestableComponent } from './AdminUsersProject/Components/rolestable/r
 import { LoggitorroutingComponent} from './AdminUsersProject/Components/loggitorrouting/loggitorrouting.component';
 
 
+
 const routes: Routes = [
   {path: 'users', component: UserstableComponent},
   {path: 'home', component: UserstableComponent},
   {path: '', component: LoginComponent},
   {path: 'loggitor', component: LoggitorroutingComponent}
-
 ];
 
 
