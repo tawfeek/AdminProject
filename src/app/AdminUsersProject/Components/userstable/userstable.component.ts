@@ -21,7 +21,7 @@ export class UserstableComponent implements OnInit {
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
   displayedColumns = ['seqID', 'userName', 'phone', 'loggedin', 'actions'];
-  // displayedColumns = ['seqID', 'email', 'phone', 'role', 'loggedin', 'actions'];
+
   dataSource;
   chart = [];
 

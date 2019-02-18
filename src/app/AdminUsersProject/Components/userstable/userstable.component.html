@@ -17,7 +17,7 @@
 
     <ng-container matColumnDef="userName">
       <mat-header-cell *matHeaderCellDef mat-sort-header>userName</mat-header-cell>
-      <mat-cell *matCellDef="let user" class="username">{{user.email}}</mat-cell>
+      <mat-cell *matCellDef="let user" class="username" >{{user.email}}</mat-cell>
     </ng-container>
 
     <ng-container matColumnDef="phone">
@@ -48,12 +48,6 @@
   </mat-paginator>
 
 </div>
-
-<div *ngIf>
-  <canvas id="canvas">{{ chart }}</canvas>
-</div>
-
-
 
 
 

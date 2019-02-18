@@ -63,7 +63,7 @@ export class RolestableComponent implements OnInit {
 
   onDelete(row) {
     if (confirm('Are you sure you want to permanently delete this role?')) {
-      // this.roleService.deleteRole(row).subscribe();
+      this.roleService.deleteRole(row).subscribe();
       this.notificationService.warn('! Deleted successfully');
     }
     this.refresh();

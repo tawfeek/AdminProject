@@ -11,7 +11,7 @@ import * as Material from '@angular/material';
 import {UserService} from '../app/AdminUsersProject/Services/user.service';
 import { NewuserComponent } from './AdminUsersProject/Components/newuser/newuser.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
-
+import {MatSidenavModule} from '@angular/material/sidenav';
 import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
 import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
 import {LoginService} from './AdminUsersProject/Services/login.service';
@@ -30,12 +30,9 @@ import { LoggitorroutingComponent } from './AdminUsersProject/Components/loggito
     UserstableComponent,
     NewuserComponent,
     LoginComponent,
-
     RolestableComponent,
     NewroleComponent,
     LoggitorroutingComponent
-
-
   ],
   imports: [
     BrowserModule,
@@ -53,9 +50,10 @@ import { LoggitorroutingComponent } from './AdminUsersProject/Components/loggito
     Material.MatInputModule,
     Material.MatFormFieldModule,
     Material.MatCheckboxModule,
+    MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
-    Material.MatSnackBarModule
+    Material.MatSnackBarModule,
 
   ],
   providers: [UserService, NewuserComponent, LoginService, RoleService, NewroleComponent, { provide: MatDialogRef, useValue: {} },
