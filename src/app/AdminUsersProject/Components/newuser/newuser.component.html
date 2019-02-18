@@ -66,7 +66,6 @@
 </mat-grid-list>
 </form>
 
-<!--<pre>Form values: {{userService.form.value | json}}</pre>-->
 
 
 
@@ -79,87 +78,6 @@
 
 
 
-<!--
-<h1>
-  Amdocs Log Admin System New User at date:
-  {{mydate | date: 'dd/mm/yyyy, HH:mm'}}
-</h1>
 
 
-<h2>Personal info</h2>
-
-<form>
-
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': f.name.errors }"/>
-  </div>
-
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" formControlName="email" class="form-control"/>
-  </div>
-
-  <div class="form-group">
-    <label for="phone">Phone</label>
-    <input type="text" formControlName="phone" class="form-control"/>
-  </div>
-
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" formControlName="password" class="form-control"/>
-  </div>
-
-</form>-->
-    <span>{{userService.form.controls['$key'].value?"Modify User":"New User"}}</span>
-    <span class="fill-remaining-space"></span>
-    <button class="btn-dialog-close" mat-stroked-button (click)="onClose()" tabIndex="-1"><mat-icon>clear</mat-icon></button>
-   </mat-toolbar>
-   
-   <form [formGroup]= "userService.form" class="normal-form">
-   
-    <mat-grid-list cols="2" rowHeight="2:1">
-   
-      <mat-grid-tile>
-        <div class="controles-container">
-          <input formControlName="$key" type="hidden">
-          <br>
-          <mat-form-field>
-            <input formControlName="name" matInput placeholder="Full Name*">
-            <mat-error>Name is required.</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <input formControlName="email" matInput placeholder="Email*">
-            <mat-error>Invalid email address.</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <input formControlName="phone" matInput placeholder="Phone*">
-            <mat-error *ngIf="userService.form.controls['phone'].errors?.required">Phone number is required.</mat-error>
-            <mat-error *ngIf="userService.form.controls['phone'].errors?.minlength">Minimum 10 charactors needed.</mat-error>
-          </mat-form-field>
-          <mat-form-field>
-            <input formControlName="password" matInput placeholder="Password*" type="password">
-          </mat-form-field>
-        </div>
-      </mat-grid-tile>
-   
-      <mat-grid-tile>
-        <div class="add-bottom-padding" *ngFor="let data of userService.roles">
-          <input formArrayName="roles" type="checkbox" [checked]="data.checked"
-          (change)="onChange(data.role_name, $event.target.checked)">{{data.role_name}}
-   
-        
-   
-        </div>
-      </mat-grid-tile>
-   
-      <mat-grid-tile>
-        <div class="button-row">
-          <button mat-raised-button color="primary" type="submit" [disabled]="userService.form.invalid" (click)="onSubmit()">Save</button>
-          <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
-        </div>
-      </mat-grid-tile>
-   
-   </mat-grid-list>
-   </form>
 

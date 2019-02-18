@@ -32,8 +32,7 @@ import { LoggitorroutingComponent } from './AdminUsersProject/Components/loggito
     LoginComponent,
 
     RolestableComponent,
-    NewroleComponent
-
+    NewroleComponent,
     LoggitorroutingComponent
 
 

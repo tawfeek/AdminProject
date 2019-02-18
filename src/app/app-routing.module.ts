@@ -3,18 +3,13 @@ import { Routes, RouterModule } from '@angular/router';
 import { UserstableComponent } from './AdminUsersProject/Components/userstable/userstable.component';
 import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
 import { RolestableComponent } from './AdminUsersProject/Components/rolestable/rolestable.component';
-
-const routes: Routes = [
-  {path: 'users', component: UserstableComponent},
-  {path: 'login', component: LoginComponent},
-  {path: '', component: RolestableComponent}
-
 import { LoggitorroutingComponent} from './AdminUsersProject/Components/loggitorrouting/loggitorrouting.component';
 
 
 const routes: Routes = [
+  {path: 'users', component: UserstableComponent},
   {path: 'home', component: UserstableComponent},
-  {path: '', component: LoginComponent},
+  {path: 'login', component: LoginComponent},
   {path: 'loggitor', component: LoggitorroutingComponent}
 
 ];
