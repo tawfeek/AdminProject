@@ -9,7 +9,7 @@ import { LoggitorroutingComponent} from './AdminUsersProject/Components/loggitor
 const routes: Routes = [
   {path: 'users', component: UserstableComponent},
   {path: 'home', component: UserstableComponent},
-  {path: 'login', component: LoginComponent},
+  {path: '', component: LoginComponent},
   {path: 'loggitor', component: LoggitorroutingComponent}
 
 ];
