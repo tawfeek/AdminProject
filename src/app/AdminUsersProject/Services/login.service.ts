@@ -23,8 +23,8 @@ return this.httpClient
 .put(this.postLoginUrl, login, this.httpOptions)
 .subscribe(
   (response) => {
-    console.log('loginResponse: ' + response.toString);
-   this.idToSend = 2;
+    // console.log('loginResponse: ' + response.toString);
+    this.idToSend = 2;
     this.router.navigate(['/loggitor'], { queryParams: { id : this.idToSend }});
 });
 // .subscribe(response => console.log(response));
