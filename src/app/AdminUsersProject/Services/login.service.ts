@@ -3,6 +3,8 @@ import { HttpClient, HttpHeaders} from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { Login } from '../model/login.model';
 import { Router } from '@angular/router';
+import { KeyLogin } from '../model/keyLogin.model';
+import { map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'
@@ -11,6 +13,7 @@ import { Router } from '@angular/router';
 
 export class LoginService {
   idToSend: number;
+  myKeyLogin: KeyLogin;
   private postLoginUrl = 'http://localhost:8080/login';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private httpClient: HttpClient,
@@ -22,11 +25,19 @@ export class LoginService {
 return this.httpClient
 .put(this.postLoginUrl, login, this.httpOptions)
 .subscribe(
-  (response) => {
-   // console.log('loginResponse: ' + response.toString);
+  (response: KeyLogin) => {
+    // console.log('my login response:' + JSON.stringify(response.key));
+     this.myKeyLogin = new KeyLogin(response.key);
+   //  console.log('my login response:' + this.myKeyLogin.key);
      this.idToSend = 2;
-     this.router.navigate(['/loggitor'], { queryParams: { id : this.idToSend }});
+     if (this.myKeyLogin.key > 0) {
+      this.router.navigate(['/loggitor'], { queryParams: { id : this.myKeyLogin.key }});
+     } else {
+      // do something
+      console.log('login failed');
+     }
 });
+
 // .subscribe(response => console.log(response));
   }
 }

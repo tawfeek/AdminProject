@@ -23,7 +23,7 @@ export class LoggitorroutingComponent implements OnInit {
   sendToActionHomewithId(routid: string): void {
     if (this.routid != null) {
       window.location.href =
-      'https://loggitor-fe.herokuapp.com/home/' + this.routid;
+      'https://loggitor1.herokuapp.com/src/' + this.routid;
     }
   }
 
