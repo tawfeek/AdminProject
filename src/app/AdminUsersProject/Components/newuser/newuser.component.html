@@ -36,22 +36,7 @@
         <input formArrayName="roles" type="checkbox" [checked]="data.checked"
         (change)="onChange(data.role_name, $event.target.checked)">{{data.role_name}}
 
-        <!--<div class="add-bottom-padding" *ngFor="let data of roles2">
-          <input formArrayName="roles" type="checkbox" [checked]=data.checked
-          (change)="onChange(data.role, $event.target.checked)">{{data.role}}-->
-
-          <!--<div class="add-bottom-padding">
-              <label formArrayName="roles" *ngFor="let data of roles">
-                  <input type="checkbox" (change)="onChange(data.role_name, $event.target.checked)">{{data.role_name}}
-                </label>-->
-        <!--<mat-checkbox (change)="onChange(data.role, $event.target.checked)">{{data.role}}</mat-checkbox>-->
-        <!--<mat-checkbox>Role 1</mat-checkbox>
-        <br>
-        <mat-checkbox>Role 2</mat-checkbox>
-        <br>
-        <mat-checkbox>Role 3</mat-checkbox>
-        <br>
-        <mat-checkbox>Role 4</mat-checkbox>-->
+   
 
       </div>
     </mat-grid-tile>
@@ -66,7 +51,6 @@
 </mat-grid-list>
 </form>
 
-<pre>Form values: {{userService.form.value | json}}</pre>
 
 
 
@@ -79,36 +63,11 @@
 
 
 
-<!--
-<h1>
-  Amdocs Log Admin System New User at date:
-  {{mydate | date: 'dd/mm/yyyy, HH:mm'}}
-</h1>
 
 
-<h2>Personal info</h2>
 
-<form>
 
-  <div class="form-group">
-    <label for="name">Name</label>
-    <input type="text" formControlName="name" class="form-control" [ngClass]="{ 'is-invalid': f.name.errors }"/>
-  </div>
 
-  <div class="form-group">
-    <label for="email">Email</label>
-    <input type="text" formControlName="email" class="form-control"/>
-  </div>
 
-  <div class="form-group">
-    <label for="phone">Phone</label>
-    <input type="text" formControlName="phone" class="form-control"/>
-  </div>
 
-  <div class="form-group">
-    <label for="password">Password</label>
-    <input type="password" formControlName="password" class="form-control"/>
-  </div>
-
-</form>-->
 

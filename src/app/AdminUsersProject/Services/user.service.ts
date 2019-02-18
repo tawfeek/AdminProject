@@ -14,8 +14,10 @@ import { RoleService } from './role.service';
 })
 export class UserService {
 
-  private serviceUrl = 'http://localhost:8080/';
-  // private serviceUrl = 'https://adminfinal5.herokuapp.com/';
+
+   // private serviceUrl = 'https://adminfinal5.herokuapp.com/users';
+    private serviceUrl = 'http://localhost:8080/';
+
   httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
   roles: Role[];

@@ -5,10 +5,12 @@ import { LoginComponent } from './AdminUsersProject/Components/login/login.compo
 import { RolestableComponent } from './AdminUsersProject/Components/rolestable/rolestable.component';
 import { LoggitorroutingComponent} from './AdminUsersProject/Components/loggitorrouting/loggitorrouting.component';
 
+
+
 const routes: Routes = [
   {path: 'users', component: UserstableComponent},
+  {path: 'home', component: UserstableComponent},
   {path: 'login', component: LoginComponent},
-  {path: 'roles', component: RolestableComponent},
   {path: 'loggitor', component: LoggitorroutingComponent}
 ];
 
