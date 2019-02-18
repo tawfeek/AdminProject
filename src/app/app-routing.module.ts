@@ -11,7 +11,8 @@ const routes: Routes = [
   {path: 'users', component: UserstableComponent},
   {path: 'home', component: UserstableComponent},
   {path: '', component: LoginComponent},
-  {path: 'loggitor', component: LoggitorroutingComponent}
+  {path: 'loggitor', component: LoggitorroutingComponent},
+  {path: 'rules', component: RolestableComponent}
 ];
 
 
