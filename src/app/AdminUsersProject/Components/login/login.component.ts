@@ -22,10 +22,16 @@ export class LoginComponent implements OnInit {
   loginUser(event) {
     event.preventDefault();
     const target = event.target;
-    const username = target.querySelector('#username').value;
+    const email = target.querySelector('#username').value;
     const password = target.querySelector('#password').value;
-    this.loginService.getUserDetails( username, password );
-    console.log('what i send to server: ' + username, password);
+    console.log('what i send to server: ' + email, password);
+
+    this.login = new Login(email, password);
+
+    console.log('login obj: ' + this.login.email, this.login.password);
+
+    this.loginService.getUserDetails(this.login);
+
   }
 
 

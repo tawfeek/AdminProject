@@ -16,14 +16,14 @@ export class LoginService {
   constructor(private httpClient: HttpClient,
      private router: Router ) { }
 
-  getUserDetails(username: string, password: string) {
+  getUserDetails(login: Login) {
 // this will post the user name and passwrd to server
 
 return this.httpClient
-.put(this.postLoginUrl, {'email' : username, 'password': password}, this.httpOptions)
+.put(this.postLoginUrl, login, this.httpOptions)
 .subscribe(
   (response) => {
-   // console.log('loginResponse: ' + response.toString);
+    console.log('loginResponse: ' + response.toString);
    this.idToSend = 2;
     this.router.navigate(['/loggitor'], { queryParams: { id : this.idToSend }});
 });

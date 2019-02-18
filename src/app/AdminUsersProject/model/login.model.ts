@@ -3,7 +3,7 @@ export class Login {
     password: string;
 
     constructor(email, password) {
-    this.password = email;
+    this.email = email;
     this.password = password;
     }
 }
