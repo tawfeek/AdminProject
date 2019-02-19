@@ -1,0 +1,211 @@
+.ex{
+ position: absolute;
+ top: 0;
+ bottom: 0;
+ left: 0;
+ right: 0;
+}
+button:focus{
+ outline:0;
+ box-shadow: none;
+}
+#main {
+ transition: margin-left .5s;
+ padding: 16px;
+}
+
+@media screen and (max-height: 450px) {
+ .sidenav {padding-top: 15px;}
+ .sidenav a {font-size: 18px;}
+}
+mat-sidenav{
+ position: fixed;
+ overflow-x: hidden;
+ transition: 0.5s;
+ z-index: 1;
+ left: 0;
+}
+mat-sidenav button{
+ color:white;
+ width: 100%;
+}
+mat-sidenav button:hover{
+ background-color: white;
+ color:rgb(245, 161, 6);
+ border-image: linear-gradient(135deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+ border-image-slice: 1;
+ border-width: 2px;
+ font-size: 16px;
+ font-weight: bold;
+}
+.overlay {
+ position: relative;
+ margin: 20px;
+ text-align: right;
+
+}
+i{
+ /* overflow: hidden;;
+ position: fixed;
+*/
+ /* margin: 10px;
+ padding: 2px; */
+ top: 0;
+ align-items: center;
+ font-size: 20px;
+ /* color:black;
+ background: #FFC04F;
+ background: -moz-linear-gradient(-45deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+ background: -webkit-linear-gradient(-45deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+ background: linear-gradient(135deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%); */
+}
+
+   .ul {
+     z-index: 2;
+     opacity:1;
+     overflow: hidden;
+     height: 9%;
+     position: fixed;
+     top: 0;
+     padding: 5px;
+     list-style-type: none;
+     background-color: yellow;
+   background: #FFC04F;
+   background: -moz-linear-gradient(-45deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+   background: -webkit-linear-gradient(-45deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+   background: linear-gradient(135deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+   width:98.5%;
+   }
+
+   li {
+     float: left;
+   }
+button span{
+ font-family: 'Righteous', cursive;
+ font-weight: normal;
+ color: white;
+ text-shadow: 1px 1px 0 black;
+}
+
+   mat-cell {
+     color: white;
+     text-align: left;
+   }
+   mat-header-cell {
+     color: white;
+     font-size: 16px;
+     font-style: italic;
+   }
+   .navbar {
+     overflow: hidden;
+     background-color: #333;
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+   }
+
+   .navbar a {
+     float: left;
+     display: block;
+     color: #f2f2f2;
+     text-align: center;
+     padding: 14px 16px;
+     text-decoration: none;
+     font-size: 17px;
+   }
+
+   .navbar a:hover {
+     background: #f1f1f1;
+     color: black;
+   }
+
+   .navbar a.active {
+     background-color: #4CAF50;
+     color: white;
+   }
+
+   div{
+    position: relative;
+    left: auto;
+    top: auto;
+    }
+/*div{
+  position: relative;
+  left: auto;
+  top: auto;
+  }
+
+  .chart1{
+  clear : none;
+  float : center;
+  position : relative;
+  width : auto;
+  height : auto;
+  }
+  ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: yellow;
+  background: #FFC04F;
+  background: -moz-linear-gradient(-45deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+  background: -webkit-linear-gradient(-45deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+  background: linear-gradient(135deg, #FFC04F 0%, #FF9921 0%, #C76BC0 100%);
+
+    position: sticky;
+    top: 0;
+  }
+
+  li {
+    float: left;
+  }
+
+  li a, .dropbtn {
+    display: inline-block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+  }
+
+  li a:hover, .dropdown:hover .dropbtn {
+    background-color: rgb(255, 128, 0);
+  }
+
+  li.dropdown {
+    display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+  .dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+  }
+
+  .dropdown-content a:hover {background-color: #f1f1f1}
+
+  .dropdown:hover .dropdown-content {
+    display: block;
+  }
+
+  mat-cell {
+    color: white;
+    text-align: left;
+  }
+  mat-header-cell {
+    color: white;
+    font-size: 16px;
+    font-style: italic;
+  }*/

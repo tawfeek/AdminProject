@@ -1,0 +1,44 @@
+[
+    {
+    "seqID": "1",
+   "userName": "taw@tsofen.com",
+    "phone": "0501234567",
+    "role": "user",
+    "loggedin": "yes"
+},
+{
+    "seqID": "2",
+    "userName": "asala@tsofen.com",
+     "phone": "050778961",
+     "role": "admin",
+     "loggedin": "yes"
+},
+{
+    "seqID": "3",
+    "userName": "milad@tsofen.com",
+     "phone": "0507894561",
+     "role": "admin",
+     "loggedin": "no"
+},
+{
+    "seqID": "4",
+   "userName": "malik@tsofen.com",
+    "phone": "0501111111",
+    "role": "admin",
+    "loggedin": "yes"
+},
+{
+    "seqID": "5",
+   "userName": "tasneem@tsofen.com",
+    "phone": "0507776666",
+    "role": "user",
+    "loggedin": "yes"
+},
+{
+    "seqID": "6",
+   "userName": "walid@tsofen.com",
+    "phone": "0507777555",
+    "role": "user",
+    "loggedin": "no"
+}
+]

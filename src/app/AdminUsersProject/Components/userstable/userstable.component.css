@@ -1,0 +1,59 @@
+.tableDiv{
+  margin: auto;
+  width: 60%;
+  padding: 10px;
+  text-align:center;
+
+}
+  mat-table {
+
+      text-align:center;
+      align-items: center;
+      min-width: 200px;
+      background-color:#343A40;
+
+  }
+  mat-paginator{
+    background-color:#343A40;
+    color:white;
+  }
+  mat-cell{
+    color:white;
+  }
+  mat-header-cell{
+    color:white;
+  }
+  .seqid{
+      width: 10px;
+  }
+
+
+  caption {
+      caption-side:bottom;
+      font-weight:bold;
+      font-style:italic;
+      margin:4px;
+  }
+
+  table,th, td {
+
+      border: 1px solid gray;
+  }
+
+  th, td {
+      height: 24px;
+      padding:4px;
+      vertical-align:middle;
+  }
+
+
+
+  .rowtitle {
+      font-weight:bold;
+  }
+
+  table tr:nth-child(odd) td {
+      background-color: #F0F0F0;
+    }
+
+
