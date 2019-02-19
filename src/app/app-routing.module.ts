@@ -12,7 +12,7 @@ const routes: Routes = [
   {path: 'home', component: UserstableComponent},
   {path: '', component: LoginComponent},
   {path: 'loggitor', component: LoggitorroutingComponent},
-  {path: 'rules', component: RolestableComponent}
+  {path: 'roles', component: RolestableComponent}
 ];
 
 

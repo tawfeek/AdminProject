@@ -8,8 +8,8 @@ import { Permission } from '../model/permission.model';
 })
 export class PermissionService {
 
-  // private baseUrl = 'https://adminfinal5.herokuapp.com/';
-  private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://adminfinal5.herokuapp.com/';
+  // private baseUrl = 'http://localhost:8080/';
 
   httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 

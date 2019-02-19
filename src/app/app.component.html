@@ -1,11 +1,11 @@
-<!-- <mat-sidenav-container class="example-container" >
+<mat-sidenav-container class="example-container" >
 </mat-sidenav-container>
 <div class="ex " (click)="close();closeNav();" id="mySidenav">
 <mat-sidenav #sidenav  (keydown.escape)="close(); closeNav();" disableClose class="text-white bg-dark">
    <a class="btn-dialog-close overlay" mat-stroked-button (click)="close();closeNav();" tabIndex="-1"><mat-icon>clear</mat-icon></a>
-<p> <button type="button" class="btn" style="padding: 12px 16px;" routerLink="home" (click)="refreshHref();">Home</button></p>
-<p><button type="button" class="btn" style="padding: 12px 16px;" routerLink="/users" (click)="refreshHref();">Users List</button></p>
-<p><button type="button" class="btn" style="padding: 12px 16px;" routerLink="/roles" (click)="refreshHref();">Roles List</button></p>
+<p><button type="button" class="btn" style="padding: 12px 16px;" routerLink="home" (click)="refreshHref();">Home</button></p>
+<p><button type="button" class="btn" style="padding: 12px 16px;" routerLink="users" (click)="refreshHref();">Users List</button></p>
+<p><button type="button" class="btn" style="padding: 12px 16px;" routerLink="roles" (click)="refreshHref();">Roles List</button></p>
 </mat-sidenav>
 </div>
 
@@ -33,7 +33,7 @@
           <H2 align="center">Log Admin System Status at  <span>{{jstoday}}</span></H2>
           <br><br>
 
-   </div>  -->
+   </div>
 
   <div>
    <router-outlet></router-outlet>

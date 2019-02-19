@@ -15,8 +15,8 @@ import { PermissionService } from './permission.service';
 })
 export class RoleService {
 
-  private baseUrl = 'http://localhost:8080/';
-  // private baseUrl = 'https://adminfinal5.herokuapp.com/';
+  // private baseUrl = 'http://localhost:8080/';
+  private baseUrl = 'https://adminfinal5.herokuapp.com/';
 
   httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
@@ -30,7 +30,7 @@ export class RoleService {
     $key: new FormControl(null),
     role_name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
-    permissions: new FormArray([], [Validators.required])
+    permissions: new FormArray([])
   });
 
   initializeFormGroup() {
