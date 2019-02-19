@@ -59,10 +59,10 @@ import { LoggitorroutingComponent } from './AdminUsersProject/Components/loggito
 
   ],
   providers: [UserService, NewuserComponent, LoginService, RoleService, NewroleComponent, { provide: MatDialogRef, useValue: {} },
-  { provide: MAT_DIALOG_DATA, useValue: [] }],
+  { provide: MAT_DIALOG_DATA, useValue: [] }, LoginComponent],
 
   bootstrap: [AppComponent],
-  entryComponents: [NewuserComponent, NewroleComponent]
+  entryComponents: [NewuserComponent, NewroleComponent, LoginComponent]
 })
 export class AppModule { }
 
