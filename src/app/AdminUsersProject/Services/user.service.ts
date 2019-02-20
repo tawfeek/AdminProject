@@ -32,7 +32,7 @@ export class UserService {
     email: new FormControl('', [Validators.required, Validators.email]),
     phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.pattern('[0-9]{10}')]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    roles: new FormArray([])
+    roles: new FormArray([], Validators.minLength(1))
   });
 
   initializeFormGroup() {

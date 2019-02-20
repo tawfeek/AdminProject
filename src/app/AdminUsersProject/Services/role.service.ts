@@ -30,7 +30,7 @@ export class RoleService {
     $key: new FormControl(null),
     role_name: new FormControl('', Validators.required),
     description: new FormControl('', Validators.required),
-    permissions: new FormArray([])
+    permissions: new FormArray([], Validators.minLength(1))
   });
 
   initializeFormGroup() {
