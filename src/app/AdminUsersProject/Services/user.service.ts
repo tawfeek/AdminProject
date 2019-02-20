@@ -15,8 +15,8 @@ import { RoleService } from './role.service';
 export class UserService {
 
 
-   // private serviceUrl = 'https://adminfinal5.herokuapp.com/users';
-    private serviceUrl = 'http://localhost:8080/';
+  private serviceUrl = 'https://adminfinal5.herokuapp.com/';
+  // private serviceUrl = 'http://localhost:8080/';
 
   httpOptions = { headers: new HttpHeaders({'Content-Type': 'application/json'})};
 
@@ -29,10 +29,10 @@ export class UserService {
   form: FormGroup = new FormGroup({
     $key: new FormControl(null),
     name: new FormControl('', Validators.required),
-    email: new FormControl('', Validators.email),
-    phone: new FormControl('', [Validators.required, Validators.minLength(10)]),
+    email: new FormControl('', [Validators.required, Validators.email]),
+    phone: new FormControl('', [Validators.required, Validators.minLength(10), Validators.pattern('[0-9]{10}')]),
     password: new FormControl('', [Validators.required, Validators.minLength(6)]),
-    roles: new FormArray([], [Validators.required])
+    roles: new FormArray([])
   });
 
   initializeFormGroup() {
@@ -50,6 +50,8 @@ export class UserService {
     for (let i = roleFormArray.length - 1; i >= 0; i--) {
       roleFormArray.removeAt(i);
     }
+
+
     this.form.setValue({
       $key: null,
       name: '',

@@ -15,7 +15,8 @@ import { FormGroup, FormControl, Validators } from '@angular/forms';
 export class LoginService {
   idToSend: number;
   myKeyLogin: KeyLogin;
-  private postLoginUrl = 'http://localhost:8080/login';
+  // private postLoginUrl = 'http://localhost:8080/login';
+  private postLoginUrl = 'https://adminfinal5.herokuapp.com/login';
   httpOptions = { headers: new HttpHeaders({ 'Content-Type': 'application/json' })};
   constructor(private httpClient: HttpClient,
      private router: Router ) { }
