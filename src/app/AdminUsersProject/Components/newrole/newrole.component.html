@@ -26,13 +26,13 @@
       <mat-grid-tile>
         <div class="add-bottom-padding" *ngFor="let data of roleService.permissions">
           <input formArrayName="permissions" type="checkbox" [checked]="data.checked"
-          (change)="onChange(data.per_name, $event.target.checked)">{{data.per_name}}
+          (change)="onChange(data.per_name, $event.target.checked)">{{data.per_name}}<br>
         </div>
       </mat-grid-tile>
 
       <mat-grid-tile>
         <div class="button-row">
-          <button mat-raised-button color="primary" type="submit" [disabled]="roleService.form.invalid" (click)="onSubmit()">Save</button>
+          <button mat-raised-button color="primary" type="submit" [disabled]="((roleService.form.invalid) || (roleService.form.controls['permissions'].length === 0 ))" (click)="onSubmit()">Save</button>
           <button mat-raised-button color="warn" (click)="onClear()">Clear</button>
         </div>
       </mat-grid-tile>
@@ -40,7 +40,7 @@
   </mat-grid-list>
   </form>
 
-  <pre>Form values: {{roleService.form.value | json}}</pre>
+  <!-- <pre>Form values: {{roleService.form.value | json}}</pre> -->
 
 
 
