@@ -5,6 +5,7 @@ import { Login } from '../model/login.model';
 import { Router } from '@angular/router';
 import { KeyLogin } from '../model/keyLogin.model';
 import { map } from 'rxjs/operators';
+import { FormGroup, FormControl, Validators } from '@angular/forms';
 
 @Injectable({
   providedIn: 'root'

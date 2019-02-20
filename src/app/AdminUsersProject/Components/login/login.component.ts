@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { LoginService } from '../../Services/login.service';
 import { Login } from '../../model/login.model';
+import { FormsModule} from '@angular/forms';
+
 
 @Component({
   selector: 'app-login',
@@ -12,24 +14,18 @@ export class LoginComponent implements OnInit {
 
 
   login: Login;
+  login2: any = {};
 
   constructor(private loginService: LoginService ) { }
 
   ngOnInit() {
+    this.login = new Login('', '');
   }
 
 
-  loginUser(event) {
-    event.preventDefault();
-    const target = event.target;
-    const email = target.querySelector('#username').value;
-    const password = target.querySelector('#password').value;
-    console.log('what i send to server: ' + email, password);
+  loginUser() {
 
-    this.login = new Login(email, password);
-
-    console.log('login obj: ' + this.login.email, this.login.password);
-
+   // alert(JSON.stringify(this.login));
     this.loginService.getUserDetails(this.login);
 
   }
