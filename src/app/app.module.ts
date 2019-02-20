@@ -12,7 +12,7 @@ import {UserService} from '../app/AdminUsersProject/Services/user.service';
 import { NewuserComponent } from './AdminUsersProject/Components/newuser/newuser.component';
 import { ReactiveFormsModule, FormsModule } from '@angular/forms';
 import {MatSidenavModule} from '@angular/material/sidenav';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material';
+import { MatDialogRef, MAT_DIALOG_DATA, MatCardModule } from '@angular/material';
 import { LoginComponent } from './AdminUsersProject/Components/login/login.component';
 import {LoginService} from './AdminUsersProject/Services/login.service';
 
@@ -49,6 +49,7 @@ import 'hammerjs';
     Material.MatDialogModule,
     Material.MatButtonModule,
     Material.MatIconModule,
+    MatCardModule,
     Material.MatToolbarModule,
     Material.MatGridListModule,
     Material.MatInputModule,

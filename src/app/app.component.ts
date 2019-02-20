@@ -39,14 +39,14 @@ export class AppComponent {
    this.sidenav.close();
  }
  AdminURL() {
-   // window.location.href = 'https://adminloggitor.herokuapp.com/#home';
-   window.location.href = 'http://localhost:4200';
+    window.location.href = 'https://admin-users.herokuapp.com/users';
+   // window.location.href = 'http://localhost:4200';
  }
  LoggitorURL() {
    window.location.href = 'https://loggitor1.herokuapp.com/src/';
  }
  ActionURL() {
-   window.location.href = 'https://loggitor-fe.herokuapp.com/home';
+   window.location.href = 'https://loggitor-fe.herokuapp.com/home/2';
  }
 }
 

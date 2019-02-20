@@ -13,6 +13,10 @@
       background-color:#343A40;
 
   }
+  mat-card{
+    border-color:white;
+    border: 2px solid;
+}
   mat-paginator{
     background-color:#343A40;
     color:white;
