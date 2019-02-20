@@ -11,19 +11,20 @@
     <mat-grid-tile>
       <div class="controles-container">
         <input formControlName="$key" type="hidden">
-        <br>
         <mat-form-field>
           <input formControlName="name" matInput placeholder="Full Name*">
           <mat-error>Name is required.</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input formControlName="email" matInput placeholder="Email*">
-          <mat-error>Invalid email address.</mat-error>
+          <mat-error *ngIf="userService.form.controls['email'].errors?.required">Email address is required.</mat-error>
+          <mat-error *ngIf="userService.form.controls['email'].errors?.email">Invalid email address.</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input formControlName="phone" matInput placeholder="Phone*">
           <mat-error *ngIf="userService.form.controls['phone'].errors?.required">Phone number is required.</mat-error>
           <mat-error *ngIf="userService.form.controls['phone'].errors?.minlength">Minimum 10 charactors needed.</mat-error>
+          <mat-error *ngIf="userService.form.controls['phone'].errors?.pattern">Only numbers accepted.</mat-error>
         </mat-form-field>
         <mat-form-field>
           <input formControlName="password" matInput placeholder="Password*" type="password">
