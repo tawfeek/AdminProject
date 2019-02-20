@@ -22,7 +22,7 @@ import { NewroleComponent } from './AdminUsersProject/Components/newrole/newrole
 
 import { LoggitorroutingComponent } from './AdminUsersProject/Components/loggitorrouting/loggitorrouting.component';
 
-// import 'hammerjs';
+import 'hammerjs';
 
 
 
