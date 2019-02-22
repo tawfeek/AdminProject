@@ -48,6 +48,9 @@ export class AppComponent {
  ActionURL() {
    window.location.href = 'https://loggitor-fe.herokuapp.com/home/2';
  }
+ AboutURL() {
+  window.location.href = 'https://loggitor-fe.herokuapp.com/about';
+}
 }
 
 /*import { Component } from '@angular/core';
